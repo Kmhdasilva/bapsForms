@@ -1,7 +1,7 @@
 ﻿
 namespace bapsforms
 {
-    partial class Form1
+    partial class baps
     {
         /// <summary>
         /// Required designer variable.
