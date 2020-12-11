@@ -11,16 +11,32 @@ using System.Windows.Forms;
 
 namespace bapsforms
 {
-    public partial class Form1 : Form
+    public partial class baps : Form
     {
         private static List<Room> rooms = new List<Room>();
         string MyConString = "SERVER=localhost;" + "DATABASE=baps;" + "UID=root;" + "PASSWORD=;";
 
-        public Form1()
+        public baps()
         {
             InitializeComponent();
             database_connection();
             CreateButtons();
+        }
+
+        private void CreateButtons()
+        {
+            int top = 50;
+            int left = 100;
+
+            foreach(var room in rooms)
+            {
+                Button roomButton = new Button();
+                roomButton.Left = left;
+                roomButton.Top = top;
+                roomButton.Text = "";
+                this.Controls.Add(roomButton);
+                top += roomButton.Height + 2;
+            }
         }
 
        private void database_connection()
