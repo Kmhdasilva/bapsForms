@@ -33,7 +33,7 @@ namespace bapsforms
                 Button roomButton = new Button();
                 roomButton.Left = left;
                 roomButton.Top = top;
-                roomButton.Text = "";
+                roomButton.Text = room.name;
                 this.Controls.Add(roomButton);
                 top += roomButton.Height + 2;
             }
