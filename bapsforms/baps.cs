@@ -26,16 +26,44 @@ namespace bapsforms
         private void CreateButtons()
         {
             int top = 50;
-            int left = 100;
+            int left = 20;
+            Panel roomButtonPanel = new Panel();
+            roomButtonPanel.Height = 900;
+            roomButtonPanel.Width = 600;
 
-            foreach(var room in rooms)
+            foreach (var room in rooms)
             {
                 Button roomButton = new Button();
+                roomButton.Name = room.name;
                 roomButton.Left = left;
                 roomButton.Top = top;
-                roomButton.Text = "";
-                this.Controls.Add(roomButton);
+                roomButton.Height = 150;
+                roomButton.Width = 500;
+                roomButton.Text = room.name;
+                roomButton.Tag = "roombutton";
+                roomButtonPanel.Controls.Add(roomButton);
+                this.Controls.Add(roomButtonPanel);
                 top += roomButton.Height + 2;
+                roomButton.Click += (sender, EventArgs) => { ShowRoomInfo(sender, EventArgs, room.id); roomButtonPanel.Hide(); };
+            }
+        }
+
+        private void ShowRoomInfo(object sender, EventArgs e, int id)
+        {
+            
+            foreach (var room in rooms)
+            {
+                if(room.id == id)
+                {
+                    ListBox roomList = new ListBox();
+                    roomList.Location = new Point(10, 10);
+                    roomList.Items.Add(room.name);
+                    roomList.Width = 500;
+                    roomList.Height = 800;
+                    roomList.TabIndex = 2;
+                    this.Controls.Add(roomList);
+                    roomList.ResumeLayout();
+                }
             }
         }
 
