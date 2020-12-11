@@ -31,12 +31,12 @@ namespace bapsforms
         {
             this.SuspendLayout();
             // 
-            // Form1
+            // baps
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 861);
-            this.Name = "Form1";
+            this.Name = "baps";
             this.Text = "BAPS";
             this.ResumeLayout(false);
 
